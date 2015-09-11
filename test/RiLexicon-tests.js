@@ -103,7 +103,7 @@ var runtests = function() {
     ok(lex.containsWord("are"));
     lex.removeWord("are");
 
-    var removeTwoWordSize = lex.size();
+    removeTwoWordSize = lex.size();
     ok(removeTwoWordSize < removeOneWordSize);
     lex.reload();
     ok(lex.size() == originalSize);
@@ -137,19 +137,19 @@ var runtests = function() {
     var result = lex.alliterations("cat");
     ok(result.length > 2000);
 
-    var result = lex.alliterations("dog");
+    result = lex.alliterations("dog");
     ok(result.length > 1000);
 
-    var result = lex.alliterations("URL");
+    result = lex.alliterations("URL");
     ok(result.length < 1);
 
-    var result = lex.alliterations("no stress");
+    result = lex.alliterations("no stress");
     ok(result.length < 1);
 
-    var result = lex.alliterations("#$%^&*");
+    result = lex.alliterations("#$%^&*");
     ok(result.length < 1);
 
-    var result = lex.alliterations("");
+    result = lex.alliterations("");
     ok(result.length < 1);
 
     // TODO: better tests
@@ -162,7 +162,7 @@ var runtests = function() {
     var result = lex.alliterations("dog", 15);
     ok(result.length == 3);
 
-    var result = lex.alliterations("cat", 16);
+    result = lex.alliterations("cat", 16);
     //for (var i = 0; i < result.length; i++)
     //console.log(i + ") " + result[i]);
 
@@ -284,25 +284,25 @@ var runtests = function() {
     ok(result2.length > 1000);
     notDeepEqual(result1, result2);
 
-    var result = lex.words("colou*r");
+    result = lex.words("colou*r");
     ok(result.length > 5);
 
-    var result = lex.words("[^A-M]in");
+    result = lex.words("[^A-M]in");
     ok(result.length > 5);
 
-    var result1 = lex.words("colou*r", false);
+    result1 = lex.words("colou*r", false);
     ok(result1.length > 5);
 
-    var result2 = lex.words(false, "colou*r");
+    result2 = lex.words(false, "colou*r");
     ok(result2.length > 5);
 
     // make sure they are
     deepEqual(result1, result2);
 
-    var result1 = lex.words("colou*r", true);
+    result1 = lex.words("colou*r", true);
     ok(result1.length > 5);
 
-    var result2 = lex.words(true, "colou*r");
+    result2 = lex.words(true, "colou*r");
     ok(result2.length > 5);
 
     // make sure they are
@@ -663,11 +663,11 @@ var runtests = function() {
     var result = lex.similarBySound("worngword");
     deepEqual(result, ["watchword", "wayward", "wormwood"]);
 
-    var result = lex.similarBySound("tornado");
+    result = lex.similarBySound("tornado");
     deepEqual(result, ["torpedo"]);
 
     result = lex.similarBySound("try");
-    var answer = ["cry", "dry", "fry", "pry", "rye", "tie", "tray", "tree", "tribe", "tried", "tries", "tripe", "trite", "true", "wry"];
+    answer = ["cry", "dry", "fry", "pry", "rye", "tie", "tray", "tree", "tribe", "tried", "tries", "tripe", "trite", "true", "wry"];
     deepEqual(result, answer);
 
     result = lex.similarBySound("try", 2);
@@ -717,24 +717,24 @@ var runtests = function() {
     var answer = ["sand", "thou"];
     deepEqual(result, answer);
 
-    var result = lex.substrings("thousand", 2);
-    var answer = ["an", "and", "ho", "sand", "thou", "us"];
+    result = lex.substrings("thousand", 2);
+    answer = ["an", "and", "ho", "sand", "thou", "us"];
     deepEqual(result, answer);
 
-    var result = lex.substrings("banana", 1);
-    var answer = ["a", "an", "b", "ban", "n", "na"];
+    result = lex.substrings("banana", 1);
+    answer = ["a", "an", "b", "ban", "n", "na"];
     deepEqual(result, answer);
 
-    var result = lex.substrings("thousand", 3);
-    var answer = ["and", "sand", "thou"];
+    result = lex.substrings("thousand", 3);
+    answer = ["and", "sand", "thou"];
     deepEqual(result, answer);
 
-    var result = lex.substrings("thousand"); // min-length=4
-    var answer = ["sand", "thou"];
+    result = lex.substrings("thousand"); // min-length=4
+    answer = ["sand", "thou"];
     deepEqual(result, answer);
 
-    var result = lex.substrings("");
-    var answer = [];
+    result = lex.substrings("");
+    answer = [];
     deepEqual(result, answer);
 
   });
@@ -747,12 +747,12 @@ var runtests = function() {
     var answer = ["supermarket", "supermarkets"];
     deepEqual(result, answer);
 
-    var result = lex.superstrings("puni");
-    var answer = ["impunity", "punish", "punishable", "punished", "punishes", "punishing", "punishment", "punishments", "punitive", "unpunished"];
+    result = lex.superstrings("puni");
+    answer = ["impunity", "punish", "punishable", "punished", "punishes", "punishing", "punishment", "punishments", "punitive", "unpunished"];
     deepEqual(result, answer);
 
-    var result = lex.superstrings("");
-    var answer = [""];
+    result = lex.superstrings("");
+    answer = [""];
     ok(result.length > 1000);
 
   });
@@ -765,24 +765,24 @@ var runtests = function() {
     var result = lex._getPosData("box");
     deepEqual(result, "nn vb");
 
-    var result = lex._getPosData("there");
+    result = lex._getPosData("there");
     deepEqual(result, "ex rb uh");
 
-    var result = lex._getPosData("is");
+    result = lex._getPosData("is");
     deepEqual(result, "vbz rb nns vbp");
 
-    var result = lex._getPosData("a");
+    result = lex._getPosData("a");
     deepEqual(result, "dt");
 
-    var result = lex._getPosData("beautiful");
+    result = lex._getPosData("beautiful");
     deepEqual(result, "jj");
 
     //Empty String
-    var result = lex._getPosData(".");
+    result = lex._getPosData(".");
     deepEqual(result, "");
 
     lex = createLex()
-    var result = lex._getPosData("beautiful guy");
+    result = lex._getPosData("beautiful guy");
     deepEqual(result, "");
 
 
@@ -839,16 +839,16 @@ var runtests = function() {
     var result = lex._lookupRaw("banana");
     deepEqual(result, ["b-ax-n ae1-n ax", "nn"]);
 
-    var result = lex._lookupRaw("sand");
+    result = lex._lookupRaw("sand");
     deepEqual(result, ["s-ae1-n-d", "nn"]);
 
-    var result = lex._lookupRaw("hex");
+    result = lex._lookupRaw("hex");
     deepEqual(result, null);
 
-    var result = lex._lookupRaw("there is");
+    result = lex._lookupRaw("there is");
     deepEqual(result, null);
 
-    var result = lex._lookupRaw("ajj");
+    result = lex._lookupRaw("ajj");
     deepEqual(result, null);
   });
 
@@ -864,20 +864,20 @@ var runtests = function() {
     var answer = "dh-ax";
     equal(result, answer);
 
-    var result = lex._getPhonemes("The.");
-    var answer = "dh-ax";
+    result = lex._getPhonemes("The.");
+    answer = "dh-ax";
     equal(result, answer);
 
-    var result = lex._getPhonemes("The boy jumped over the wild dog.");
-    var answer = "dh-ax b-oy jh-ah-m-p-t ow-v-er dh-ax w-ay-l-d d-ao-g";
+    result = lex._getPhonemes("The boy jumped over the wild dog.");
+    answer = "dh-ax b-oy jh-ah-m-p-t ow-v-er dh-ax w-ay-l-d d-ao-g";
     equal(result, answer);
 
-    var result = lex._getPhonemes("The boy ran to the store.");
-    var answer = "dh-ax b-oy r-ae-n t-uw dh-ax s-t-ao-r";
+    result = lex._getPhonemes("The boy ran to the store.");
+    answer = "dh-ax b-oy r-ae-n t-uw dh-ax s-t-ao-r";
     equal(result, answer);
 
-    var result = lex._getPhonemes("");
-    var answer = "";
+    result = lex._getPhonemes("");
+    answer = "";
     equal(result, answer);
 
   });
@@ -892,24 +892,24 @@ var runtests = function() {
     var answer = "0 1/0/0 1 1 1 1";
     equal(result, answer);
 
-    var result = lex._getStresses("The emperor had no clothes on.");
-    var answer = "0 1/0/0 1 1 1 1";
+    result = lex._getStresses("The emperor had no clothes on.");
+    answer = "0 1/0/0 1 1 1 1";
     equal(result, answer);
 
-    var result = lex._getStresses("The emperor had no clothes on. The King is fat.");
-    var answer = "0 1/0/0 1 1 1 1 0 1 1 1";
+    result = lex._getStresses("The emperor had no clothes on. The King is fat.");
+    answer = "0 1/0/0 1 1 1 1 0 1 1 1";
     equal(result, answer);
 
-    var result = lex._getStresses("to preSENT, to exPORT, to deCIDE, to beGIN");
-    var answer = "1 0/1 1 0/1 1 0/1 1 0/1";
+    result = lex._getStresses("to preSENT, to exPORT, to deCIDE, to beGIN");
+    answer = "1 0/1 1 0/1 1 0/1 1 0/1";
     equal(result, answer);
 
-    var result = lex._getStresses("to present, to export, to decide, to begin");
-    var answer = "1 0/1 1 0/1 1 0/1 1 0/1";
+    result = lex._getStresses("to present, to export, to decide, to begin");
+    answer = "1 0/1 1 0/1 1 0/1 1 0/1";
     equal(result, answer);
 
-    var result = lex._getStresses("");
-    var answer = "";
+    result = lex._getStresses("");
+    answer = "";
     equal(result, answer);
   });
 
@@ -923,12 +923,12 @@ var runtests = function() {
     var answer = "dh-ax eh-m-p/er/er hh-ae-d n-ow k-l-ow-dh-z aa-n";
     equal(result, answer);
 
-    var result = lex._getSyllables("@#$%*()");
-    var answer = "";
+    result = lex._getSyllables("@#$%*()");
+    answer = "";
     equal(result, answer);
 
-    var result = lex._getSyllables("");
-    var answer = "";
+    result = lex._getSyllables("");
+    answer = "";
     equal(result, answer);
   });
 
